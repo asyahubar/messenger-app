@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper" :class="{ 'my-message': myMessage }">
         <div class="single-message" :class="{ 'not-read': !message.isRead }">
-            <p>{{ message.text }}</p>
+            <p><pre>{{ message.text }}</pre></p>
             <div class="info" v-if="message.toShowDetails">
                 <span>by {{ message.user }} at {{ formattedTime }}</span>
             </div>
@@ -60,6 +60,12 @@
          p {
              margin: 0;
              padding: 5px 0;
+
+             pre {
+                 font-family: 'Avenir', Helvetica, Arial, sans-serif;
+                 margin: 0;
+                 padding: 0;
+             }
          }
 
          .info {
@@ -70,6 +76,10 @@
 
      .my-message {
          justify-content: flex-end;
+
+         .single-message {
+             background-color: rgba(65, 105, 225, 0.3);
+         }
 
          .info {
              float: right;
